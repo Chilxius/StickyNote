@@ -72,7 +72,7 @@ void drawGameBox()
 void drawEllipse()
 {
   fill(ellipseColor);
-  ellipse(ellipseX+25,ellipseY+95,ellipseW,ellipseH);
+  ellipse(ellipseX+30,ellipseY+100,ellipseW,ellipseH);
 }
 
 //Draws the cheater's grid (fades away)
@@ -120,6 +120,7 @@ void drawTitle()
 //Draws the awards the player has won
 void drawAwards()
 {
+  //Boxes
   push();
   for( int i = 0; i < 5; i++ )
   {
@@ -130,6 +131,7 @@ void drawAwards()
   }
   pop();
   
+  //Medals
   for( int i = 0; i < award.length-1; i++ )
   {
     push();
@@ -279,7 +281,7 @@ void drawEllipseInput()
   text( value[2], 365,485);
   text( value[3], 447.5,485);
   
-  if( valueBoxClicked > 0 ) //0 is no box; only highlights existing boxes
+  if( valueBoxClicked > 0 ) //0 is not a box; only highlights existing boxes
   {
     noFill();
     strokeWeight(4);
@@ -348,7 +350,7 @@ void cueCelebration()
 //Determines the award and puts it in the correct spot on the wall
 void giveAward()
 {
-  int awardToGive = 0; //<>//
+  int awardToGive = 0;
   if( value[2]*value[3] > 14400 )     awardToGive = 1; //ellipse was too big
   else if( attempts >= 7 )            awardToGive = 2;
   else if( attempts >= 4 )            awardToGive = 3;
@@ -453,7 +455,7 @@ void mousePressed()
     gridOpacity = 253;
     usedGrid = true;
   }
-}//
+}
 
 void keyPressed()
 {
